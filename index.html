@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Monte Carlo</title>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css?family=Ravi+Prakash" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="scripts.js"></script>
+
+<body>
+<div id="main" onload="update()">
+	<div id="head">
+		Monte Carlo Pi Solving
+	</div>
+	
+	<div id="board">
+	<canvas id="mapa" width="600" height="600" style="border:1px solid white;">not working</canvas>
+	
+	</div>
+	</br>
+	How many randomize: <input id="howMany" type="text"  />
+	<div id="pointsInside">
+	Points inside circle: 
+	</div>
+	<div id="piValue">
+	PI value: 
+	</div>
+	<div id="buttons">
+	<input type="button" value="RANDOMIZE" class="zapytanie" onclick="randomize()" />
+	<input id="turnoff" type="button" value="PLAY" class="zapytanie" onclick="play()" />
+	<input type="button" value="CLEAR" class="zapytanie" onclick="location.href='index.html'" />
+	
+	</div>
+	
+</div>
+
+
+
+</body>
+
+</html>
