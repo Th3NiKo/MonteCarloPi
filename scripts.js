@@ -6,6 +6,8 @@ var mapy = 600/tileY;
 var fillWhite = "rgba("+255+","+255+","+255+","+(255/255)+")";
 var fillBlack = "rgba("+0+","+0+","+0+","+(255/255)+")";
 
+
+
 var firstArray = new Array(mapx);
 for (var i = 0; i < mapx; i++) {
   firstArray[i] = new Array(mapy);
@@ -20,9 +22,7 @@ for(var i = 0; i < mapx; i++)
 }
 
 //Zmienne do obliczeń
-var insideCircle = 0;
-var outsideCircle = 0;
-var total = 0;
+
 
 function isInside(x, y)
 {
@@ -37,14 +37,41 @@ function isInside(x, y)
 
 
 
-function randomize()
-{
 
+
+function isInt(n) {
+   return n % 1 === 0;
+}
+
+function randomize()
+{	
+
+	for (var i = 0; i < mapx; i++) {
+ 	 firstArray[i] = new Array(mapy);
+	}
+
+	for(var i = 0; i < mapx; i++)
+	{
+		for(var j = 0; j < mapy; j++)
+		{
+			firstArray[i][j] = 0;
+		}
+	}
+
+
+
+	var insideCircle = 0;
+	var outsideCircle = 0;
+	var total = 0;
 	var howManyRandomize = document.getElementById("howMany").value;
+	if(!isInt(howManyRandomize) ){
+		alert("Podaj dodatnią liczbę całkowitą!");
+	} else if(howManyRandomize > 0){
 	var c = document.getElementById("mapa");
 	var ctx = c.getContext("2d");
-
-	ctx.fillStyle = fillWhite;
+	ctx.fillStyle = "white";
+	ctx.fillRect(0,0,600,600);
+	ctx.fillStyle = "black";
 	for(var i = 0; i < howManyRandomize; i++)
 	{
 			var randX = Math.abs(Math.floor((Math.random() * mapx - 1)));
@@ -75,5 +102,8 @@ function randomize()
 	//Drawing text
 	document.getElementById("pointsInside").innerHTML = "Points inside circle: " + insideCircle;
 	document.getElementById("piValue").innerHTML = "PI value: " + insideCircle * 4.0 / total;
+	} else {
+		alert("Podaj dodatnią liczbę całkowitą!");
+	}
 	
 }
